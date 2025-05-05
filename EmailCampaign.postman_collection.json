@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "4c1e9dde-8448-44e4-a92d-bef018c7b05a",
+		"name": "EmailCampaign",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Campaign",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"New Year Promo\",\n  \"subject\": \"Happy New Year!\",\n  \"body\": \"Here's a special offer for you.\",\n  \"status\": \"draft\",\n  \"scheduled_at\": \"2025-01-01 10:00:00\"\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/campaigns",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"campaigns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/audience/filter?status=Paid&expires_in_days=30",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"audience",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "Paid"
+						},
+						{
+							"key": "expires_in_days",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schedule Campaign",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"status\": \"Paid\",\n  \"expires_in_days\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/campaigns/1/send",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"campaigns",
+						"1",
+						"send"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
