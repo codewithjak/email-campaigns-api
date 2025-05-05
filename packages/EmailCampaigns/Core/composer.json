@@ -1,0 +1,19 @@
+{
+    "name": "emailcampaign/core",
+    "description": "To send emails for a campaign",
+    "type": "package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "EmailCampaigns\\Core\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Junaid Khan",
+            "email": "junaid.khan@rolustech.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
